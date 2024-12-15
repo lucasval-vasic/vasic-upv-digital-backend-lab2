@@ -1,0 +1,11 @@
+.idea
+run/
+*.db
+*.rpt
+**/out/*.lec.do
+**/out/*tcl
+**/out/*.vg
+**/out/*.v
+**/out/*.sdc
+**/out/test.*
+**/out/*.pinassign

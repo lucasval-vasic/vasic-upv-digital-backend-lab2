@@ -1,13 +1,13 @@
-#Lab 2 - Logical synthesis and Design for Test
+# Lab 2 - Logical synthesis and Design for Test
 
-##Introduction
+## Introduction
 On this lab we will get acquainted with the logical synthesis tool from Cadence: Genus.
 
 During the lab you will get familiar with the different steps in the synthesis task and then will insert scan chains into a design.
 
 The lab includes files for the sync_fifo design, for the 0.18um X-Fab process. You will need to add the tcons files from Lab 1. If you complete all the lab you can also synthesize the async_fifo design, or port the design to the 0.35um AMS process.
 
-##Genus start
+## Genus start
 As we did on the first lab we will source the config_cadence.sh script to set up the paths for Cadence flow:
 
 ```console
@@ -20,7 +20,7 @@ Now we can ensure that Genus works by invoking it:
 > genus
 ```
 
-##Synthesis flow scripts
+## Synthesis flow scripts
 Unlike what we did on lab 1 where we spent most of the time issuing individual commands here we will use a complete flow of scripts to run synthesis on the designs.
 
 The first task of the lab is to examine and get familiar with these files. Start by opening run.tcl script and read it through. You will find references to familiar stages like map to generic gates, map to technology gates, optimization, timing verification. For each of these tasks a separate script will be executed. This is done to simplify the main script.
@@ -28,7 +28,7 @@ The first task of the lab is to examine and get familiar with these files. Start
 Now start checking out each of the separate scripts. Notice how they are very generic scripts that could be run across many designs simply adjusting some TCL variables.
 
 
-##Initial synthesis
+## Initial synthesis
 
 Now we will run out first synthesis. Make sure you're in the $BLOCK_NAME/syn/run directory and call up Genus with the run.tcl script:
 
@@ -39,7 +39,7 @@ Now we will run out first synthesis. Make sure you're in the $BLOCK_NAME/syn/run
 After some screens of text output the synthesis process should complete without errors. Now it's time to review the files written out by Genus to the out/ and rep/ directories. You will find things like the intermediate and final synthesis netlist, and different reports about timing, area, gate in each of the different synthesis stages.
 
 
-##Synthesis reports
+## Synthesis reports
 Now that our initial synthesis run has completed we will examine the multiple report files written out by Genus. Notice how many reports repeat from synthesis state to synthesis stage. This may be useful when debugging some area or timing issue. For now we will concentrate on the reports from final stage, after all the mapping and optimizations have been completed.
 
 Check out the final_gates.rpt. Notice how it describes the total gate count, plus counter per gate type and includes an estimation of leakage power.
@@ -52,7 +52,7 @@ Then check out final_timing.rpt which has a similar structure to Tempus reports 
 
 Finally check out final.rpt. This is a summary table of different metrics across the synthesis stages. It may be useful to see how each of the stages contributes to the final figures.
 
-##Restoring design
+## Restoring design
 During each of the synthesis stages a snapshot is stored in the rep folder, named STAGE_BLOCK_NAME.db, where STAGE is each of the synthesis stages. We can quickly restore any of these checkpoints with the read_db command:
 
 ```commandline
@@ -61,7 +61,7 @@ read_db ../rep/STAGE_BLOCK_NAME.db
 
 Restore the snapshot for the final stage, we will use it to query the design database.
 
-##Design database. get_db, set_db
+## Design database. get_db, set_db
 
 On Cadence tools the design information is stored in an internal database that we can query with the get_db, set_db commands.
 
@@ -117,7 +117,7 @@ genus:> set_db [get_ports -filter direction==in] .max_fanout 10
 genus: set_db inst:a/b .pins.net.preserve true
 ```
 
-##Effort level
+## Effort level
 By default effort levels are all set to medium:
 ```commandline
 set GEN_EFF medium
@@ -125,7 +125,7 @@ set MAP_OPT_EFF medium
 ```
 Experiment setting it to high for both GEN_EFF and MAP_OPT_EFF when over-constraining the clock frequency and notice the effect on area and timing.
 
-##Retiming
+## Retiming
 In order to apply retiming to a design we will need to push timing into violations. Do so by increasing the clock frequency like you did for Lab 1 so synthesis shows a small violation as worst path. Make a backup copy of the /rep folder so you can compare the runs.
 Now add this command on top of syn_generic.tcl script:
 
@@ -135,7 +135,7 @@ set_db design:$BLOCK_NAME .retime true
 
 Rerun synthesis and notice how the tool takes a longer time as Genus is performing retiming. Search the logfile for "retime" and notice how it describes the WNS retiming will attempt to correct.
 
-##DFT insertion
+## DFT insertion
 In order to insert scan into the design we need to manually edit the RTL code and introduce the dedicated scan controls, inputs and outputs. Since the design isn't too large we can do with a single scan chain. Larger designs will require many scan chains.
 
 Now set DO_INSERT_SCAN to true in syn.tcl, so the calls to scan_define.tcl and scan_insert.tcl are executed. Add the appropriate scan control port names in scan_define.tcl. Look for the TODO comments.
@@ -144,7 +144,7 @@ Then we will need to create a separate set of timing constraints fort scan mode.
 
 After all the required edits you can rerun the synthesis and inspect the rep/dft* reports. Notice there are 2 sets of reports: dft_preview* and dft_insert*. The first ones belong to the scan rules check before scan is inserted, and the second ones are the rules checks after scan chain insertion. Also the list of flops belonging to scan chains is reported. Make a note of the chain length.
 
-##Run ATPG
+## Run ATPG
 After the scan insertion Genus will produce a complete setup for the Automated Test Pattern Generation task (ATPG). We can easily invoke Modus, the Cadence ATPG tool to check the testability of the design and get some coverage figures.
 
 Simply go to the out/ directory and invoke Modus:
@@ -155,7 +155,7 @@ modus -f runmodus.atpg.tcl
 
 Check out the out/modus.log file and notice the different Modus commands compiled by Genus.
 
-##Scan compression
+## Scan compression
 In oder to add scan compression we need to add a few more extra ports to the Verilog code: scan_compr_enable, scan_mask_enable, scan_mask_load and scan_mask_clk. The first port enables the scan compressor. The mask controls allow masking, this is, disabling some of the paths going through the compressor
 
 Then we need to enable insertion of scan compression with the DO_SCAN_COMPRESSION switch on run.tcl.

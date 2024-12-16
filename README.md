@@ -165,7 +165,3 @@ We also need to set the compression ratio at the top of scan_define.tcl. Values 
 Finally we need to add the names for the newly added ports in the scan_define.tcl script.
 
 After re-running the synthesis and ensuring that the compressor was properly inserted (check out the rep/dft_insert_report_dft_chains_w_comp.rep report and check that the compressed chain length matches the original chain size divided by the compression ratio), re-run Modus. You will that there are 2 ATPG vector generation stages, the first for FULLSCAN and the second one for COMPRESSION, which increases coverage with a reduced pattern count.
-
-##Other suggestions
-
-- adding observation/control flops

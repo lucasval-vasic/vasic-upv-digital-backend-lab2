@@ -20,9 +20,6 @@ set LOG_PATH ../log
 set LIB_PATH { \
   /cadence_pdk/xfab/XKIT/x_all/cadence/XFAB_Digital_Power_RefKit-cadence/v1_3_1/pdk/xh018/diglibs/D_CELLS_JIHD/v4_1/liberty_LPMOS/v4_1_1/PVT_1_80V_range/D_CELLS_JIHD_LPMOS_slow_1_62V_125C.lib \
 }
-
-
-
 set LEF_PATH { \
     /cadence_pdk/xfab/XKIT/x_all/cadence/XFAB_Digital_Power_RefKit-cadence/v1_3_1/pdk/xh018/cadence/v8_0/techLEF/v8_0_1_1/xh018_xx51_MET5_METMID.lef \
     /cadence_pdk/xfab/XKIT/x_all/cadence/XFAB_Digital_Power_RefKit-cadence/v1_3_1/pdk/xh018/diglibs/D_CELLS_JIHD/v4_1/LEF/v4_1_1/xh018_D_CELLS_JIHD.lef \

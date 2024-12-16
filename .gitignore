@@ -12,3 +12,4 @@
 **/out/*.pinassign
 **/out/run*sim*
 **/rep/*rep
+**/run/fv

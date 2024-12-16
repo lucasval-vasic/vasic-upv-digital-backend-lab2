@@ -1,1 +1,1 @@
-rm -rf ./* ../rep/* ../out/*
+rm -rf ../run/* ../rep/* ../out/*

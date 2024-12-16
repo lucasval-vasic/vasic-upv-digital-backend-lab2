@@ -6,7 +6,7 @@ redirect -tee $REPORTS_PATH/dft_insert_check_dft_rules_preinsert.rep {check_dft_
 report_dft_violations -tristate -xsource -xsource_by_instance -clock -abstract -async  -race -shiftreg > $REPORTS_PATH/dft_insert_advance_dft_violations.rep
 
 # in 21.10 version, by default it is true
-set_db dft_add_test_compression_new_flow false
+#set_db dft_add_test_compression_new_flow false
 
 connect_scan_chains
 

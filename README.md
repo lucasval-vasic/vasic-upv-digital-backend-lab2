@@ -138,7 +138,7 @@ Rerun synthesis and notice how the tool takes a longer time as Genus is performi
 ## DFT insertion
 In order to insert scan into the design we need to manually edit the RTL code and introduce the dedicated scan controls, inputs and outputs. Since the design isn't too large we can do with a single scan chain. Larger designs will require many scan chains.
 
-Now set DO_INSERT_SCAN to true in syn.tcl, so the calls to scan_define.tcl and scan_insert.tcl are executed. Add the appropriate scan control port names in scan_define.tcl. Look for the TODO comments.
+Now set DO_INSERT_SCAN to true in run.tcl, so the calls to scan_define.tcl and scan_insert.tcl are executed. Add the appropriate scan control port names in scan_define.tcl. Look for the TODO comments.
 
 Then we will need to create a separate set of timing constraints fort scan mode. Make sure to add a set_case_analysis in both the functional and scan constraints file where you set scan_mode and scan_enable to the correct value.
 

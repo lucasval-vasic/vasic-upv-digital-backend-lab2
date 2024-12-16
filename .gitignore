@@ -1,5 +1,6 @@
 .idea
-run/
+**/run/*.log*
+**/run/*.cmd*
 *.db
 *.rpt
 **/out/*.lec.do

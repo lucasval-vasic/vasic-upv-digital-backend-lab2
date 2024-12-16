@@ -140,8 +140,6 @@ In order to insert scan into the design we need to manually edit the RTL code an
 
 Now set DO_INSERT_SCAN to true in run.tcl, so the calls to scan_define.tcl and scan_insert.tcl are executed. Add the appropriate scan control port names in scan_define.tcl. Look for the TODO comments.
 
-Then we will need to create a separate set of timing constraints fort scan mode. Make sure to add a set_case_analysis in both the functional and scan constraints file where you set scan_mode and scan_enable to the correct value.
-
 After all the required edits you can rerun the synthesis and inspect the rep/dft* reports. Notice there are 2 sets of reports: dft_preview* and dft_insert*. The first ones belong to the scan rules check before scan is inserted, and the second ones are the rules checks after scan chain insertion. Also the list of flops belonging to scan chains is reported. Make a note of the chain length.
 
 ## Run ATPG

@@ -1,5 +1,5 @@
 # clocks
-set CLK_FREQ 500.0
+set CLK_FREQ 100.0
 set CLK_PERIOD [expr 1e3/$CLK_FREQ]
 create_clock -name clk -add -period $CLK_PERIOD [get_ports clock]
 

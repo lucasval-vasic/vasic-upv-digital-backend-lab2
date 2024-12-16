@@ -9,3 +9,5 @@ run/
 **/out/*.sdc
 **/out/test.*
 **/out/*.pinassign
+**/out/run*sim*
+**/rep/*rep

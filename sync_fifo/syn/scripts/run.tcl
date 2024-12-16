@@ -8,6 +8,7 @@ set BLOCK_NAME sync_fifo
 set GEN_EFF medium
 set MAP_OPT_EFF medium
 set DO_INSERT_SCAN false
+set DO_SCAN_COMPRESSION false
 
 set DATE [clock format [clock seconds] -format "%b%d-%T"] 
 set OUTPUTS_PATH ../out

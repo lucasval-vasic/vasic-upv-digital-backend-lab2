@@ -71,7 +71,8 @@ module sync_fifo
    input scan_enable,
    input scan_in,
    
-   input scan_mask_en,
+   input scan_compr_enable,
+   input scan_mask_enable,
    input scan_mask_load, 
    input scan_mask_clk,
    

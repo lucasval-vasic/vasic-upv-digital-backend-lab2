@@ -44,7 +44,7 @@ Now that our initial synthesis run has completed we will examine the multiple re
 
 Check out the final_gates.rpt. Notice how it describes the total gate count, plus counter per gate type and includes an estimation of leakage power.
 
-On report_power.rpt you will find an estimate of the complete power figure consumed by the design and the breakdown into static and dynamic power.
+On final_power.rpt you will find an estimate of the complete power figure consumed by the design and the breakdown into static and dynamic power.
 
 Now check out final_qor.rpt. Notice how it describes the TNS and WNS slacks, plus the area figures.
 

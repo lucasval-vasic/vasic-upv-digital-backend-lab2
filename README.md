@@ -1,11 +1,31 @@
 # Lab 2 - Logical synthesis and Design for Test
 
 ## Introduction
-On this lab we will get acquainted with the logical synthesis tool from Cadence: Genus.
+In this lab, you will be introduced to Cadence Genus, a powerful tool for logical synthesis.
 
-During the lab you will get familiar with the different steps in the synthesis task and then will insert scan chains into a design.
+Throughout the session, you will explore the key steps involved in the synthesis process and learn how to insert scan chains into a design.
 
-The lab includes files for the sync_fifo design, for the 0.18um X-Fab process. You will need to add the tcons files from Lab 1. If you complete all the lab you can also synthesize the async_fifo design, or port the design to the 0.35um AMS process.
+The lab provides files for the sync_fifo design, targeting the 0.18 µm X-Fab process. To proceed, you will need to include the tcons files from Lab 1.
+
+Upon completing the core exercises, you will have the opportunity to extend your work by synthesizing the async_fifo design or porting the design to the 0.35 µm AMS process.
+
+## Lab evaluation
+You are required to produce a lab report that documents the actions and experiments described in this guide. Present the results of your experiments using text, screenshots, or any other appropriate media.
+
+## Evaluation rubric
+The following breakdown shows how each section of this lab contributes to the overall marks:
+
+- Initial synthesis: 1 point
+- Effort level: 1 point
+- Retiming: 1 point
+- DFT - RTL edits: 1 point
+- DFT - run synthesis: 1 point
+- DFT - Modus ATPG: 1 point
+- Compression DFT - RTL edits: 1 point
+- Compression DFT - run synthesis: 1 point
+- Compression DFT - Modus ATPG: 1 point
+- Synthesize async_fifo: 1 point
+point
 
 ## Genus start
 As we did on the first lab we will source the config_cadence.sh script to set up the paths for Cadence flow:

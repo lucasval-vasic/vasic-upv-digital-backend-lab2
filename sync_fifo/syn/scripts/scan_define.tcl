@@ -28,7 +28,7 @@ define_test_signal -function shift_enable -name TODO -active high TODO -lec_valu
 define_test_signal -function test_mode -name TODO -active high TODO -lec_value 0 -test_only
 
 # Reset
-define_test_signal -function async_set_reset -name TODO -active high TODO -lec_value no_value -shared_input -scan_shift
+define_test_signal -function async_set_reset -name TODO -active low TODO -lec_value no_value -shared_input -scan_shift
 
 # Scan Clock
 define_test_clock -name TODO TODO

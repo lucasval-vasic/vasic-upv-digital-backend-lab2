@@ -178,7 +178,7 @@ In oder to add scan compression we need to add a few more extra ports to the Ver
 
 Then we need to enable insertion of scan compression with the DO_SCAN_COMPRESSION switch on run.tcl.
 
-We also need to set the compression ratio at the top of scan_insert.tcl. Values between 20 and 30 are usual.
+We also need to set the compression ratio at the top of scan_define.tcl. Values between 20 and 30 are usual.
 
 Finally we need to add the names for the newly added ports in the scan_insert.tcl script.
 

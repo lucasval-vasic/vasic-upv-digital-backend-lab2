@@ -60,7 +60,7 @@ After some screens of text output the synthesis process should complete without 
 
 
 ## Synthesis reports
-Now that our initial synthesis run has completed we will examine the multiple report files written out by Genus. Notice how many reports repeat from synthesis state to synthesis stage. This may be useful when debugging some area or timing issue. For now we will concentrate on the reports from final stage, after all the mapping and optimizations have been completed.
+Now that our initial synthesis run has completed we will examine the multiple report files written out by Genus. Notice how many reports repeat from synthesis stage to synthesis stage. This may be useful when debugging some area or timing issue. For now we will concentrate on the reports from final stage, after all the mapping and optimizations have been completed.
 
 Check out the final_gates.rpt. Notice how it describes the total gate count, plus counter per gate type and includes an estimation of leakage power.
 

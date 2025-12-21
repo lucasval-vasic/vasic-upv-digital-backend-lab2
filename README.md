@@ -25,7 +25,6 @@ The following breakdown shows how each section of this lab contributes to the ov
 - Compression DFT - run synthesis: 1 point
 - Compression DFT - Modus ATPG: 1 point
 - Synthesize async_fifo: 1 point
-point
 
 ## Genus start
 As we did on the first lab we will source the config_cadence.sh script to set up the paths for Cadence flow:
